@@ -6,7 +6,6 @@ puts "Will you need an Umbrella today?"
 puts "Where are you?"
 
 location = gets.chomp
-puts "#{location}"
 #parsing gmaps
 gmaps_key = ENV.fetch("GMAPS_KEY")
 gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{location}&key=#{gmaps_key}"
