@@ -28,11 +28,15 @@ puts "The Longitude and Latitude is #{long}, #{lat}"
 puts "The Current Tempature in #{location} is #{current_temp}"
 hour_parse = parsed_pirate_data.fetch("hourly")
 hour_data_parse = hour_parse.fetch("data")
+next_twelve = hour_data_parse[1..12]
 will_rain = 0
-hour_data_parse.each do |x|
-  if(x.fetch("precipProbability")>= 10)
+next_twelve.each do |x|
+  if(x.fetch("precipProbability")>= 0)
     will_rain = will_rain +1
   end
 end 
-
-puts will_rain
+if(will_rain >= 1)
+  puts "You will probably need an Umbrella"
+else
+  puts "You probably will not need an Umbrella"
+end
