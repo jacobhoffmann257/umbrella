@@ -18,5 +18,11 @@ geo_hash = first_hash_results.fetch("geometry")
 location_hash = geo_hash.fetch("location")
 long = location_hash.fetch("lng")
 lat = location_hash.fetch("lat");
+#parsing pirate
 pirate_key = ENV.fetch("PIRATE_WEATHER_KEY")
 pirate_url = "https://api.pirateweather.net/forecast/#{pirate_key}/#{long},#{lat}"
+raw_pirate_data = HTTP.get(pirate_url)
+parsed_pirate_data = JSON.parse(raw_pirate_data)
+current_pirate = parsed_pirate_data.fetch("currently")
+current_temp = current_pirate.fetch("temperature")
+puts current_temp
