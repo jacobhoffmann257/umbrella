@@ -24,4 +24,5 @@ raw_pirate_data = HTTP.get(pirate_url)
 parsed_pirate_data = JSON.parse(raw_pirate_data)
 current_pirate = parsed_pirate_data.fetch("currently")
 current_temp = current_pirate.fetch("temperature")
+puts "The Longitude and Latitude is #{long}, #{lat}"
 puts "The Current Tempature in #{location} is #{current_temp}"
