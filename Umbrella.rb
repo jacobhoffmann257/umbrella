@@ -30,9 +30,13 @@ hour_parse = parsed_pirate_data.fetch("hourly")
 hour_data_parse = hour_parse.fetch("data")
 next_twelve = hour_data_parse[1..12]
 will_rain = 0
+count = 0
 next_twelve.each do |x|
-  if(x.fetch("precipProbability")>= 0)
+  puts "It is #{count} hours from know and the Preciptation chance is #{x.fetch("precipProbability")}"
+  count = count +1
+  if(x.fetch("precipProbability")>= 10)
     will_rain = will_rain +1
+    
   end
 end 
 if(will_rain >= 1)
