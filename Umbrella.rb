@@ -26,3 +26,13 @@ current_pirate = parsed_pirate_data.fetch("currently")
 current_temp = current_pirate.fetch("temperature")
 puts "The Longitude and Latitude is #{long}, #{lat}"
 puts "The Current Tempature in #{location} is #{current_temp}"
+hour_parse = parsed_pirate_data.fetch("hourly")
+hour_data_parse = hour_parse.fetch("data")
+will_rain = 0
+hour_data_parse.each do |x|
+  if(x.fetch("precipProbability")>= 10)
+    will_rain = will_rain +1
+  end
+end 
+
+puts will_rain
